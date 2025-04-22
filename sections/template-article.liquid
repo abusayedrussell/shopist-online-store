@@ -28,8 +28,14 @@
           {{ article.title }}
         </h1>
       </header>
-      <img src="{{ article.image | img_url:'large' }}" alt="{{article.image.alt}}">
-      <div class="text-white">{{ article.content }}</div>
+      <img
+        class="mb-4 lg:mb-6 not-format"
+        alt="{{ article.alt }}"
+        src="{{ article.image }}"
+        width="{{ article.image.width }}"
+        height="{{ article.image.height }}"
+      >
+      <div class="mb-4 lg:mb-6 text-white">{{ article.content }}</div>
 
       <section class="not-format">
         <div class="flex justify-between items-center mb-6">
