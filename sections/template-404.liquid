@@ -1,0 +1,77 @@
+<div class="h-screen w-full flex flex-col justify-center items-center bg-[#1A2238]">
+  <h1 class="text-9xl font-extrabold text-white tracking-widest">{{ section.settings.title_404 }}</h1>
+  <div class="bg-[#FF6A3D] px-2 text-sm rounded rotate-12 absolute">{{ section.settings.heading_404 }}</div>
+  <p class="mt-6 text-lg font-medium text-pretty text-white sm:text-xl/8">
+    {{ section.settings.subtext_404 }}
+  </p>
+  {% if section.settings.button_label_404 != blank %}
+    {% if section.settings.button_url_404 == blank %}
+      {% assign shop_url = shop.secure_url %}
+    {% else %}
+      {% assign shop_url = section.settings.button_url_404 %}
+    {% endif %}
+    <button class="mt-5">
+      <a
+        href="{{ shop_url }}"
+        class="relative inline-block text-sm font-medium text-[#FF6A3D] group active:text-orange-500 focus:outline-none focus:ring"
+      >
+        <span
+          class="absolute inset-0 transition-transform translate-x-0.5 translate-y-0.5 bg-[#FF6A3D] group-hover:translate-y-0 group-hover:translate-x-0"
+        ></span>
+
+        <span class="relative block px-8 py-3 bg-[#1A2238] border border-current">
+          <router-link to="/">{{ section.settings.button_label_404 }}</router-link>
+        </span>
+      </a>
+    </button>
+  {% endif %}
+</div>
+
+{% schema %}
+{
+  "name": "Template 404",
+  "tag": "section",
+  "class": "template_404_section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title_404",
+      "label": "Title",
+      "default": "404",
+      "info": "Change your title to keep default"
+    },
+    {
+      "type": "text",
+      "id": "heading_404",
+      "label": "Heading",
+      "default": "Oops! not found",
+      "info": "Change your 404 heading or Leave it aply default."
+    },
+    {
+      "type": "text",
+      "id": "subtext_404",
+      "label": "Subtext",
+      "default": "Sorry, we couldn’t find the page you’re looking for.",
+      "info": "Change your 404 subtext or Leave it aply default."
+    },
+    {
+      "type": "text",
+      "id": "button_label_404",
+      "label": "Button Label",
+      "default": "Go Home",
+      "info": "Change your 404 button label or Leave it aply default."
+    },
+    {
+      "type": "url",
+      "id": "button_url_404",
+      "label": "Button Url",
+      "info": "Change your 404 button url or Leave it aply default."
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    }
+  ]
+}
+{% endschema %}
