@@ -12,10 +12,6 @@
     "template": {
       "type": "template-article",
       "blocks": {
-        "content": {
-          "type": "article_content",
-          "settings": {}
-        },
         "author": {
           "type": "article_author",
           "settings": {}
@@ -31,14 +27,18 @@
         "title": {
           "type": "article_title",
           "settings": {}
+        },
+        "content": {
+          "type": "article_content",
+          "settings": {}
         }
       },
       "block_order": [
-        "content",
         "author",
         "published_date",
         "thumbnail",
-        "title"
+        "title",
+        "content"
       ],
       "settings": {
         "enable_author": true,
