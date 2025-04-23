@@ -7,12 +7,13 @@
             <header class="mb-4 lg:mb-6 not-format">
               <address class="flex items-center mb-6 not-italic">
                 <div class="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white">
-                  <img
-                    class="mr-4 w-16 h-16 rounded-full"
-                    src="{{ article.user.image }}"
-                    alt="{{ article.user.image.alt }}"
-                  >
                   {% if section.settings.enable_author %}
+                    <img
+                      class="mr-4 w-16 h-16 rounded-full"
+                      src="{{ article.user.image }}"
+                      alt="{{ article.user.image.alt }}"
+                    >
+
                     <div>
                       <a href="#" rel="author" class="text-xl font-bold text-gray-900 dark:text-white">
                         {{- article.author -}}
@@ -799,7 +800,33 @@
     {
       "type": "featured_image",
       "name": "Thumbnail",
-      "limit": 1
+      "limit": 1,
+      "settings": [
+        {
+          "type": "select",
+          "id": "image_height",
+          "options": [
+            {
+              "value": "adapt",
+              "label": "Adapt"
+            },
+            {
+              "value": "small",
+              "label": "Small"
+            },
+            {
+              "value": "medium",
+              "label": "Medium"
+            },
+            {
+              "value": "large",
+              "label": "large"
+            }
+          ],
+          "default": "Adapt",
+          "label": "Adapt"
+        }
+      ]
     },
     {
       "type": "article_content",
