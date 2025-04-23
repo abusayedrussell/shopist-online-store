@@ -23,6 +23,7 @@
                   >
                     {{- article.published_at | date: '%B %d, %Y' -}}
                   </time>
+                  {{- article.published_at | time_tag: format: 'date' -}}
                 </p>
               </div>
             {% endif %}
