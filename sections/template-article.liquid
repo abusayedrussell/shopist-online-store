@@ -763,6 +763,18 @@
   "settings": [
     {
       "type": "checkbox",
+      "id": "enable_author",
+      "default": true,
+      "label": "Display Author"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_published_date",
+      "default": true,
+      "label": "Display Published Date"
+    },
+    {
+      "type": "checkbox",
       "id": "enable_comments",
       "default": true,
       "label": "Display Comments"
@@ -783,21 +795,7 @@
     {
       "type": "article_author",
       "name": "Author",
-      "limit": 1,
-      "settings": [
-        {
-          "type": "checkbox",
-          "id": "enable_author",
-          "default": true,
-          "label": "Display Author"
-        },
-        {
-          "type": "checkbox",
-          "id": "enable_published_date",
-          "default": true,
-          "label": "Display Published Date"
-        }
-      ]
+      "limit": 1
     },
     {
       "type": "featured_image",
@@ -822,7 +820,7 @@
             },
             {
               "value": "large",
-              "label": "Large"
+              "label": "large"
             }
           ],
           "default": "adapt",
