@@ -44,10 +44,19 @@
             {{ section.settings.bottom_heading }}
           </a>
         {% endif %}
-        <span class="block text-sm text-center text-gray-500 dark:text-gray-400"
-          >© {{ 'now' | date: '%Y' }}
-          <a href="{{ routes.root_url }}" class="hover:underline"> {{ shop.name }}™</a>. All Rights Reserved.
-        </span>
+        {% if section.settings.bottom_copyright %}
+          <span class="block text-sm text-center text-gray-500 dark:text-gray-400"
+            >© {{ 'now' | date: '%Y' }}
+            <a href="{{ routes.root_url }}" class="hover:underline"> {{ shop.name }}™</a>. All Rights Reserved.
+            <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8">
+            {{ section.settings.bottom_copyright }}
+
+            {% assign copyright_content = section.settings.bottom_copyright %}
+            {% assign copyright_content = copyright_content | replace: '[current_year]', {{ 'now' | date: '%Y' }} %}
+
+            {{ copyright_content }}
+          </span>
+        {% endif %}
         <ul class="flex justify-center mt-5 space-x-5">
           <li>
             <a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white dark:text-gray-400">
@@ -121,6 +130,13 @@
       "id": "bottom_heading",
       "default": "Shopist",
       "label": "Heading"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "bottom_copyright",
+      "default": "©[current_year] [shop_name]. All rights reserved.",
+      "label": "Copyright Content",
+      "info": "©[current_year] [shop_name] [shop_description]. All rights reserved."
     },
     {
       "type": "url",
