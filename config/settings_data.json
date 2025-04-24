@@ -8,7 +8,66 @@
  * ------------------------------------------------------------
  */
 {
-  "current": {},
+  "current": {
+    "sections": {
+      "header": {
+        "type": "header",
+        "settings": {
+          "mobile_menu_title": "Menu",
+          "menu": "main-menu"
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "blocks": {
+          "link_list_nUwr9f": {
+            "type": "link_list",
+            "settings": {
+              "heading": "Company",
+              "menu": "company"
+            }
+          },
+          "link_list_midJgm": {
+            "type": "link_list",
+            "settings": {
+              "heading": "Company",
+              "menu": "help-center"
+            }
+          },
+          "link_list_LfygJx": {
+            "type": "link_list",
+            "settings": {
+              "heading": "Legal",
+              "menu": "legal"
+            }
+          },
+          "link_list_ptQFYt": {
+            "type": "link_list",
+            "settings": {
+              "heading": "Products",
+              "menu": "products"
+            }
+          },
+          "link_list_wFTmUE": {
+            "type": "link_list",
+            "settings": {
+              "heading": "Download",
+              "menu": "download"
+            }
+          }
+        },
+        "block_order": [
+          "link_list_nUwr9f",
+          "link_list_midJgm",
+          "link_list_LfygJx",
+          "link_list_ptQFYt",
+          "link_list_wFTmUE"
+        ],
+        "settings": {}
+      }
+    },
+    "content_for_index": []
+  },
   "presets": {
     "Default": {}
   }

@@ -38,8 +38,6 @@
         "content"
       ],
       "settings": {
-        "enable_author": true,
-        "enable_published_date": true,
         "enable_comments": true,
         "enable_relateds": true
       }
