@@ -109,26 +109,7 @@
 {% schema %}
 {
   "name": "Footer",
-  "settings": [
-    {
-      "type": "checkbox",
-      "id": "enable_bottom",
-      "default": true,
-      "label": "Display Bottom Section"
-    },
-    {
-      "type": "inline_richtext",
-      "id": "bottom_heading",
-      "default": "Shopist",
-      "label": "Heading"
-    },
-    {
-      "type": "url",
-      "id": "bottom_heading_url",
-      "default": "/",
-      "label": "Heading URL"
-    }
-  ],
+
   "blocks": [
     {
       "type": "@app"
@@ -150,6 +131,26 @@
           "label": "Select Menu"
         }
       ]
+    }
+  ],
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "enable_bottom",
+      "default": true,
+      "label": "Display Bottom Section"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "bottom_heading",
+      "default": "Shopist",
+      "label": "Heading"
+    },
+    {
+      "type": "url",
+      "id": "bottom_heading_url",
+      "default": "/",
+      "label": "Heading URL"
     }
   ]
 }
