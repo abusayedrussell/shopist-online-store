@@ -23,14 +23,14 @@
           "link_list_nUwr9f": {
             "type": "link_list",
             "settings": {
-              "heading": "Company",
+              "heading": "<em><strong>Company</strong></em>",
               "menu": "company"
             }
           },
           "link_list_midJgm": {
             "type": "link_list",
             "settings": {
-              "heading": "Company",
+              "heading": "About",
               "menu": "help-center"
             }
           },
