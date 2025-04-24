@@ -54,12 +54,6 @@
               "heading": "Download",
               "menu": "download"
             }
-          },
-          "footer_bottom_Pabi8f": {
-            "type": "footer_bottom",
-            "settings": {
-              "footer_bottom_heading": "Shopist"
-            }
           }
         },
         "block_order": [
@@ -67,10 +61,13 @@
           "link_list_midJgm",
           "link_list_LfygJx",
           "link_list_ptQFYt",
-          "link_list_wFTmUE",
-          "footer_bottom_Pabi8f"
+          "link_list_wFTmUE"
         ],
-        "settings": {}
+        "settings": {
+          "enable_bottom": true,
+          "bottom_heading": "Shopist",
+          "bottom_heading_url": ""
+        }
       }
     },
     "content_for_index": []
