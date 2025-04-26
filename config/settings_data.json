@@ -197,13 +197,21 @@
           "link_list_TtDyYr": {
             "type": "link_list",
             "settings": {
+              "heading": "Legal",
+              "menu": "legal"
+            }
+          },
+          "link_list_LT9b3P": {
+            "type": "link_list",
+            "settings": {
               "heading": "Company",
-              "menu": "company"
+              "menu": "footer"
             }
           }
         },
         "block_order": [
-          "link_list_TtDyYr"
+          "link_list_TtDyYr",
+          "link_list_LT9b3P"
         ],
         "settings": {
           "enable_bottom": true,
