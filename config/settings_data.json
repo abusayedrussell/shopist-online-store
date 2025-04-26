@@ -221,13 +221,21 @@
               "heading": "Products",
               "menu": "products"
             }
+          },
+          "link_list_LjHCm9": {
+            "type": "link_list",
+            "settings": {
+              "heading": "Download",
+              "menu": "download"
+            }
           }
         },
         "block_order": [
           "link_list_LT9b3P",
           "link_list_TtDyYr",
           "link_list_7VNqY9",
-          "link_list_AVaqrU"
+          "link_list_AVaqrU",
+          "link_list_LjHCm9"
         ],
         "settings": {
           "enable_bottom": true,
