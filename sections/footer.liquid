@@ -50,7 +50,9 @@
             <a href="{{ routes.root_url }}" class="hover:underline"> {{ shop.name }}™</a>. All Rights Reserved.
           </span>
         {% endif %}
-        {%- render 'social-icons' -%}
+        {%- if section.settings.show_social -%}
+          {%- render 'social-icons', class: 'footer__list-social' -%}
+        {%- endif -%}
       </div>
     {% endif %}
   </div>
