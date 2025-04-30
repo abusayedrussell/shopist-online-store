@@ -1,60 +1,59 @@
-<footer class="bg-gray-50 dark:bg-gray-800 antialiased">
-  <div class="p-4 py-6 mx-auto max-w-screen-xl md:p-8 lg:p-10">
-    <div class="grid grid-cols-2 gap-8 md:grid-cols-3 lg:grid-cols-5">
-      {% for block in section.blocks %}
-        {% case block.type %}
-          {% when '@app' %}
-            {% render block %}
-          {% when 'link_list' %}
-            {% if block.settings.menu != blank %}
-              <div>
-                {% if block.settings.heading != blank %}
-                  <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
-                    {{ block.settings.heading }}
-                  </h2>
-                {% endif %}
+<footer>
+  <div class="bg-white border-gray-200 px-4 lg:px-6 py-8 dark:bg-gray-800">
+    <div class="mx-auto max-w-screen-xl">
+      <div class="grid grid-cols-2 gap-8 md:grid-cols-3 lg:grid-cols-5">
+        {% for block in section.blocks %}
+          {% case block.type %}
+            {% when '@app' %}
+              {% render block %}
+            {% when 'link_list' %}
+              {% if block.settings.menu != blank %}
+                <div>
+                  {% if block.settings.heading != blank %}
+                    <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
+                      {{ block.settings.heading }}
+                    </h2>
+                  {% endif %}
 
-                <ul class="text-gray-500 dark:text-gray-400">
-                  {% for link in block.settings.menu.links %}
-                    <li class="mb-4">
-                      <a
-                        href="{{ link.url }}"
-                        class="hover:underline {% if link.active %} text-red-900{% endif %}"
-                      >
-                        {{ link.title | escape }}
-                      </a>
-                    </li>
-                  {% endfor %}
-                </ul>
-              </div>
-            {% endif %}
-          {% else %}
+                  <ul class="text-gray-500 dark:text-gray-400">
+                    {% for link in block.settings.menu.links %}
+                      <li class="mb-4">
+                        <a href="{{ link.url }}" class="hover:underline {% if link.active %} text-red-900{% endif %}">
+                          {{ link.title | escape }}
+                        </a>
+                      </li>
+                    {% endfor %}
+                  </ul>
+                </div>
+              {% endif %}
+            {% else %}
 
-        {% endcase %}
-      {% endfor %}
-    </div>
-    {% if section.settings.enable_bottom %}
-      <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8">
-      <div class="text-center">
-        {% if section.settings.bottom_heading %}
-          <a
-            href="{{ section.settings.bottom_heading_url }}"
-            class="flex justify-center items-center mb-5 text-2xl font-semibold text-gray-900 dark:text-white"
-          >
-            {{ section.settings.bottom_heading }}
-          </a>
-        {% endif %}
-        {% if section.settings.bottom_copyright %}
-          <span class="block text-sm text-center text-gray-500 dark:text-gray-400"
-            >© {{ 'now' | date: '%Y' }}
-            <a href="{{ routes.root_url }}" class="hover:underline"> {{ shop.name }}™</a>. All Rights Reserved.
-          </span>
-        {% endif %}
-        {%- if section.settings.show_social -%}
-          {%- render 'social-icons', class: 'footer__list-social' -%}
-        {%- endif -%}
+          {% endcase %}
+        {% endfor %}
       </div>
-    {% endif %}
+      {% if section.settings.enable_bottom %}
+        <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8">
+        <div class="text-center">
+          {% if section.settings.bottom_heading %}
+            <a
+              href="{{ section.settings.bottom_heading_url }}"
+              class="flex justify-center items-center mb-5 text-2xl font-semibold text-gray-900 dark:text-white"
+            >
+              {{ section.settings.bottom_heading }}
+            </a>
+          {% endif %}
+          {% if section.settings.bottom_copyright %}
+            <span class="block text-sm text-center text-gray-500 dark:text-gray-400"
+              >© {{ 'now' | date: '%Y' }}
+              <a href="{{ routes.root_url }}" class="hover:underline"> {{ shop.name }}™</a>. All Rights Reserved.
+            </span>
+          {% endif %}
+          {%- if section.settings.show_social -%}
+            {%- render 'social-icons', class: 'footer__list-social' -%}
+          {%- endif -%}
+        </div>
+      {% endif %}
+    </div>
   </div>
 </footer>
 {% schema %}

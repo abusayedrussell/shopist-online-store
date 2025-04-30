@@ -1,10 +1,14 @@
 {% assign main_menu_linklist = linklists[section.settings.menu].links %}
-<div class="relative bg-white" x-data="{ mobileMenuOpen: true }">
-  <div class="mx-auto px-4 sm:px-6">
-    <div class="flex justify-between items-center py-6 md:justify-start md:space-x-10">
+
+<header>
+  <div class="relative bg-white border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-gray-800" x-data="{ mobileMenuOpen: true }">
+    <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
       <!-- STORE NAME / STORE LOGO -->
       <div class="flex justify-start lg:flex-1 truncate">
-        <h1 class="text-xl font-bold truncate uppercase">{{ shop.name }}</h1>
+        <a href="https://flowbite.com" class="flex items-center">
+          <img src="{{settings.logo}}" class="mr-3 h-6 sm:h-9" alt="Flowbite Logo">
+          <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Flowbite</span>
+        </a>
       </div>
 
       <div class="-mr-2 -my-2 ml-3 md:hidden">
@@ -26,7 +30,7 @@
               <button
                 x-on:click="{{link_handle}} = ! {{link_handle}}"
                 type="button"
-                class="inline-flex items-center text-base text-gray-500 hover:text-gray-900"
+                class="inline-flex items-center text-base text-gray-500 "
               >
                 {{ link.title }}
                 {% render 'icon-chevron-down' %}
@@ -54,7 +58,7 @@
             <div class="relative">
               <a
                 href="{{ link.url }}"
-                class="text-base text-gray-500 hover:text-gray-900 {% if link.active == true %} text-red-900 {% endif %}"
+                class="block py-2 pr-4 pl-3 text-white rounded bg-primary-700  lg:bg-transparent lg:text-primary-700 lg:p-0 {% if link.active == true %} text-red-900 {% endif %}"
               >
                 {{ link.title }}
               </a>
@@ -64,13 +68,21 @@
       </nav>
 
       <div class="hidden md:flex items-center justify-end md:flex-1 space-x-5">
-        <a href="{{ routes.cart_url }}" class="whitespace-nowrap text-base text-gray-500 hover:text-gray-900">
+        <a href="{{ routes.cart_url }}" class="whitespace-nowrap text-base text-gray-500 ">
           {% render 'icon-shopping-bag' %}
         </a>
         {% if shop.customer_accounts_enabled %}
-          <a href="{{ routes.account_login_url }}" class="text-base text-gray-500 hover:text-gray-900">Login</a>
+          <a
+            href="{{ routes.account_login_url }}"
+            class="text-gray-800 dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800"
+            >Login</a
+          >
 
-          <a href="{{ routes.account_register_url }}" class="text-base text-gray-500 hover:text-gray-900">Register</a>
+          <a
+            href="{{ routes.account_register_url }}"
+            class="text-gray-800 dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800"
+            >Register</a
+          >
         {% endif %}
       </div>
     </div>
@@ -100,7 +112,7 @@
                     <button
                       x-on:click="{{ link_handle }} = ! {{ link_handle }}"
                       type="button"
-                      class="text-base text-gray-500 hover:text-gray-900 flex items-center justify-between w-full"
+                      class="text-base text-gray-500  flex items-center justify-between w-full"
                     >
                       <div>{{ link.title }}</div>
                       {% render 'icon-chevron-down' %}
@@ -110,7 +122,7 @@
                       {% for childlink in link.links %}
                         <a
                           href="{{ childlink.url }}"
-                          class="-m-3 p-3 mt-1 flex items-center rounded-md text-gray-500 hover:text-gray-900 hover:bg-gray-50"
+                          class="-m-3 p-3 mt-1 flex items-center rounded-md text-gray-500  hover:bg-gray-50"
                         >
                           <span class="ml-3 text-base font-medium text-gray-500">{{ childlink.title }}</span>
                         </a>
@@ -120,7 +132,7 @@
                 {% else %}
                   <a
                     href="{{ link.url }}"
-                    class="-m-3 p-3 flex items-center rounded-md text-gray-500 hover:text-gray-900 hover:bg-gray-50 {% if link.active == true %} text-red-900 {% endif %}"
+                    class="-m-3 p-3 flex items-center rounded-md text-gray-500  hover:bg-gray-50 {% if link.active == true %} text-red-900 {% endif %}"
                   >
                     {{ link.title }}
                   </a>
@@ -132,24 +144,114 @@
       </div>
     </div>
   </div>
-</div>
+</header>
 {% schema %}
 {
   "name": "Header",
   "settings": [
+    {
+      "type": "select",
+      "id": "logo_position",
+      "options": [
+        {
+          "value": "top-left",
+          "label": "t:sections.header.settings.logo_position.options__2.label"
+        },
+        {
+          "value": "top-center",
+          "label": "t:sections.header.settings.logo_position.options__3.label"
+        },
+        {
+          "value": "middle-left",
+          "label": "t:sections.header.settings.logo_position.options__1.label"
+        },
+        {
+          "value": "middle-center",
+          "label": "t:sections.header.settings.logo_position.options__4.label"
+        }
+      ],
+      "default": "middle-left",
+      "label": "t:sections.header.settings.logo_position.label",
+      "info": "t:sections.header.settings.logo_help.content"
+    },
+    {
+      "type": "select",
+      "id": "mobile_logo_position",
+      "options": [
+        {
+          "value": "center",
+          "label": "t:sections.header.settings.mobile_logo_position.options__1.label"
+        },
+        {
+          "value": "left",
+          "label": "t:sections.header.settings.mobile_logo_position.options__2.label"
+        }
+      ],
+      "default": "center",
+      "label": "t:sections.header.settings.mobile_logo_position.label"
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "default": "main-menu",
+      "label": "t:sections.header.settings.menu.label"
+    },
+    {
+      "type": "select",
+      "id": "menu_type_desktop",
+      "options": [
+        {
+          "value": "dropdown",
+          "label": "t:sections.header.settings.menu_type_desktop.options__1.label"
+        },
+        {
+          "value": "mega",
+          "label": "t:sections.header.settings.menu_type_desktop.options__2.label"
+        },
+        {
+          "value": "drawer",
+          "label": "t:sections.header.settings.menu_type_desktop.options__3.label"
+        }
+      ],
+      "default": "dropdown",
+      "label": "t:sections.header.settings.menu_type_desktop.label"
+    },
+    {
+      "type": "select",
+      "id": "sticky_header_type",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:sections.header.settings.sticky_header_type.options__1.label"
+        },
+        {
+          "value": "on-scroll-up",
+          "label": "t:sections.header.settings.sticky_header_type.options__2.label"
+        },
+        {
+          "value": "always",
+          "label": "t:sections.header.settings.sticky_header_type.options__3.label"
+        },
+        {
+          "value": "reduce-logo-size",
+          "label": "t:sections.header.settings.sticky_header_type.options__4.label"
+        }
+      ],
+      "default": "on-scroll-up",
+      "label": "t:sections.header.settings.sticky_header_type.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_line_separator",
+      "default": true,
+      "label": "t:sections.header.settings.show_line_separator.label"
+    },
     {
       "type": "text",
       "id": "mobile_menu_title",
       "label": "Title",
       "default": "Menu",
       "info": "Change your mobile menu title or Leave it to keep default"
-    },
-
-    {
-      "type": "link_list",
-      "id": "menu",
-      "default": "main-menu",
-      "label": "Header Menu"
     }
   ]
 }
