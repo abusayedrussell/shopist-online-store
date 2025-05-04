@@ -42,12 +42,7 @@
               {{ section.settings.bottom_heading }}
             </a>
           {% endif %}
-          {% if section.settings.bottom_copyright %}
-            <span class="block text-sm text-center text-gray-500 dark:text-gray-400"
-              >© {{ 'now' | date: '%Y' }}
-              <a href="{{ routes.root_url }}" class="hover:underline"> {{ shop.name }}™</a>. All Rights Reserved.
-            </span>
-          {% endif %}
+          {%- render 'copyright' -%}
           {%- if section.settings.show_social -%}
             {%- render 'social-icons', class: 'footer__list-social' -%}
           {%- endif -%}
