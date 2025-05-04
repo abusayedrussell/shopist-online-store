@@ -207,7 +207,6 @@
                     </div>
                   </article>
                 {% endfor %}
-                {{ paginate | json }}
                 {% if paginate.pages > 1 %}
                   <nav aria-label="Page navigation example">
                     <ul class="inline-flex -space-x-px text-base h-10">
@@ -279,8 +278,6 @@
                       {% endif %}
                     </ul>
                   </nav>
-
-                  {{ paginate | default_pagination }}
                 {% endif %}
               {% endpaginate %}
             {% else %}

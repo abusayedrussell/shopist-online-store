@@ -1,0 +1,72 @@
+{% if pagination.pages > 1 %}
+  <nav aria-label="Page navigation example mx-auto max-w-screen-xl">
+    <ul class="inline-flex -space-x-px text-base h-10 mb-5 ">
+      {% if pagination.previous %}
+        <li>
+          <a
+            href="{{ pagination.previous.url }}"
+            class="flex items-center justify-center px-4 h-10 ms-0 leading-tight text-gray-500 bg-white border border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+            >Previous</a
+          >
+        </li>
+      {% else %}
+        <li>
+          <span
+            class="disabled flex items-center justify-center px-4 h-10 ms-0 leading-tight text-gray-500 bg-white border border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+            >Previous</span
+          >
+        </li>
+      {% endif %}
+
+      {% for part in pagination.parts %}
+        {% if part.is_link %}
+          <li>
+            <a
+              href="{{ part.url }}"
+              class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+            >
+              {{- part.title -}}
+            </a>
+          </li>
+        {% else %}
+          {% if part.title == pagination.current_page %}
+            <li>
+              <a
+                href="{{ part.url }}"
+                aria-current="page"
+                class="active flex items-center justify-center px-4 h-10 text-blue-600 border border-gray-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white"
+              >
+                {{- part.title -}}
+              </a>
+            </li>
+          {% else %}
+            <li>
+              <a
+                href="{{ part.url }}"
+                class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+              >
+                {{- part.title -}}
+              </a>
+            </li>
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+      {% if pagination.next %}
+        <li>
+          <a
+            href="{{ pagination.next.url }}"
+            class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+            >Next</a
+          >
+        </li>
+      {% else %}
+        <li>
+          <span
+            class="disabled flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+            >Next</span
+          >
+        </li>
+      {% endif %}
+    </ul>
+  </nav>
+{% endif %}
